@@ -1,0 +1,13 @@
+import requests
+class HtmlDownloader(object):
+    def download(url):
+        if url is None:
+            return None
+        user_agent='Mozilla/4.0 (Compatible; MSIE 5.5; Windows NT)'
+        headers={'User_Agent':user_agent}
+        r=requests.get(url,headers=headers)
+        if r.status_code==200:
+            r.encoding='UTF8'
+            return r.text
+        return None
+
